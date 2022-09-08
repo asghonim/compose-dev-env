@@ -29,3 +29,5 @@ services:
     build: vscode
     restart: always
     container_name: crowd-security-ch1-vscode
+    volumes:
+      - /home/vscode/project
