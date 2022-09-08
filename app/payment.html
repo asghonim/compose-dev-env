@@ -1,0 +1,92 @@
+<html>
+
+<head>
+  <title>Payment Page</title>
+</head>
+
+<body>
+  <h1>
+    Payment
+  </h1>
+  <script>
+    const inventory = {
+      "blue_pen": 5,
+      "red_pen": 10,
+      "black_pen": 0
+    }
+  </script>
+  Your order is
+  <table>
+    <script>
+      const blue = document.location.href.substring(
+        document.location.href.indexOf("blue=") + 5);
+      const decodedBlue = decodeURI(blue);
+      const countBlue = parseInt(document.location.href.indexOf("blue=") ? decodedBlue : 0);
+
+      const red = document.location.href.substring(
+        document.location.href.indexOf("red=") + 4);
+      const decodedRed = decodeURI(red);
+      const countRed = parseInt(document.location.href.indexOf("red=") ? decodedRed : 0);
+
+      const black = document.location.href.substring(
+        document.location.href.indexOf("black=") + 6);
+      const decodedBlack = decodeURI(black);
+      const countBlack = parseInt(document.location.href.indexOf("black=") ? decodedBlack : 0);
+    </script>
+    <tr>
+      <td>Blue:</td>
+      <td>
+        <script>document.write(countBlue)</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Red:</td>
+      <td>
+        <script>document.write(countRed)</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Black:</td>
+      <td>
+        <script>document.write(countBlack)</script>
+      </td>
+    </tr>
+  </table>
+  <h1>Pay With</h1>
+  <select id="payment_method">
+    <option value="visa">VISA</option>
+    <option value="mc">Master Card</option>
+    <option value="cash">Cash</option>
+    <script>
+      if (document.location.href.indexOf("dynamic_option=") > -1) {
+        const dynamicOption = document.location.href.substring(
+          document.location.href.indexOf("dynamic_option=") + 15);
+        const decodedDynamicOption = decodeURI(dynamicOption)
+        document.write(`<option id="dynamicOption">${decodedDynamicOption}</option>`);
+      }
+    </script>
+  </select>
+  <button id="submit">Complete Payment</button>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const extraMethods = ['American Express', 'Barclays', 'Citi'];
+      const extraMethodsValues = ['ae', 'barclays', 'citi'];
+      for (let i = 0; i < extraMethods.length; i++) {
+        const node = document.createElement('option');
+        node.value = extraMethodsValues[i];
+        node.innerHTML = extraMethods[i];
+        document.querySelector('#payment_method').appendChild(node);
+      }
+    });
+    document.getElementById("submit").addEventListener('click', () => {
+      callPaymentGateway(
+        document.getElementById('payment_method').value,
+        countBlue,
+        countRed,
+        countBlack
+      );
+    })
+  </script>
+</body>
+
+</html>

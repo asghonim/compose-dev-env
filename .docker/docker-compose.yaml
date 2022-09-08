@@ -1,4 +1,4 @@
-name: crowd-security-ch1
+name: crowd-security-pensforeveryoneinc
 version: "2.1"
 services:
   app:
@@ -8,32 +8,12 @@ services:
     restart: always
     ports:
       - 8000:8000
-    container_name: crowd-security-ch1-app1
+    container_name: crowd-security-pensforeveryoneinc-app
     volumes_from:
       - vscode:rw
-    # volumes:
-    # - type: bind
-    #   source: .
-    #   target: /home/vscode/project
-  app2:
-    build:
-      context: .
-      dockerfile: app.Dockerfile
-    restart: always
-    container_name: crowd-security-ch1-app2
-    volumes_from:
-      - vscode:rw
-    ports:
-      - 9000:8000
-    # volumes:
-    # - type: bind
-    #   source: .
-    #   target: /home/vscode/project
   vscode:
     build:
       context: .
       dockerfile: vscode.Dockerfile
     restart: always
-    container_name: crowd-security-ch1-vscode
-    volumes:
-      - /home/vscode/project
+    container_name: crowd-security-pensforeveryoneinc-vscode
