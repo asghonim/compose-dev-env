@@ -2,7 +2,9 @@ name: crowd-security-ch1
 version: "2.1"
 services:
   app:
-    build: app
+    build:
+      context: .
+      dockerfile: app.Dockerfile
     restart: always
     ports:
       - 8000:8000
@@ -14,7 +16,9 @@ services:
     #   source: .
     #   target: /home/vscode/project
   app2:
-    build: app
+    build:
+      context: .
+      dockerfile: app.Dockerfile
     restart: always
     container_name: crowd-security-ch1-app2
     volumes_from:
@@ -26,7 +30,9 @@ services:
     #   source: .
     #   target: /home/vscode/project
   vscode:
-    build: vscode
+    build:
+      context: .
+      dockerfile: vscode.Dockerfile
     restart: always
     container_name: crowd-security-ch1-vscode
     volumes:
