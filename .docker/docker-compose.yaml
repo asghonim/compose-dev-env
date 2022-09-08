@@ -26,6 +26,6 @@ services:
   data:
     build: app
     restart: always
-    container_name: crowd-security-ch1-app2
+    container_name: crowd-security-ch1-data
     volumes:
       - /data/
