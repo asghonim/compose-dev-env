@@ -7,6 +7,8 @@ services:
     ports:
       - 8000:8000
     container_name: crowd-security-ch1-app1
+    volumes_from:
+      - data:rw
     # volumes:
     # - type: bind
     #   source: .
@@ -15,7 +17,15 @@ services:
     build: app
     restart: always
     container_name: crowd-security-ch1-app2
+    volumes_from:
+      - data:rw
     # volumes:
     # - type: bind
     #   source: .
     #   target: /home/vscode/project
+  data:
+    build: app
+    restart: always
+    container_name: crowd-security-ch1-app2
+    volumes:
+      - /data/
