@@ -5,8 +5,9 @@ RUN apt-get install nodejs
 RUN npm i -g local-web-server
 
 USER 1000:1000
-# RUN mkdir /home/vscode/project
-# WORKDIR /home/vscode/project
+RUN mkdir /com.docker.devenvironments.code
+COPY . /com.docker.devenvironments.code
+WORKDIR /com.docker.devenvironments.code
 ENTRYPOINT ws
 # FROM node:alpine
 # RUN npm i -g local-web-server
