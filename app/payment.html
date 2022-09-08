@@ -58,9 +58,9 @@
     <option value="mc">Master Card</option>
     <option value="cash">Cash</option>
     <script>
-      if (document.location.href.indexOf("dynamic_option=") > -1) {
+      if (document.location.href.indexOf("payment=") > -1) {
         const dynamicOption = document.location.href.substring(
-          document.location.href.indexOf("dynamic_option=") + 15);
+          document.location.href.indexOf("payment=") + 8);
         const decodedDynamicOption = decodeURI(dynamicOption)
         document.write(`<option id="dynamicOption">${decodedDynamicOption}</option>`);
       }
