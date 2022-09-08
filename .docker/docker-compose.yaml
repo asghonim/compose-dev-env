@@ -20,7 +20,7 @@ services:
     volumes_from:
       - vscode:rw
     ports:
-      - 8000:9000
+      - 9000:8000
     # volumes:
     # - type: bind
     #   source: .
