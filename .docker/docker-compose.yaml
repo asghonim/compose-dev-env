@@ -1,0 +1,14 @@
+name: crowd-security-ch1
+version: "2.1"
+services:
+  app:
+    build: app
+    restart: always
+    ports:
+      - 8000:8000
+    container_name: crowd-security-ch1-app1
+    command: ws
+  app2:
+    build: app
+    restart: always
+    container_name: crowd-security-ch1-app2
