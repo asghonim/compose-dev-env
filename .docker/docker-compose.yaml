@@ -26,6 +26,6 @@ services:
     #   source: .
     #   target: /home/vscode/project
   vscode:
-    build: docker/dev-environments-default:stable-1
+    build: vscode
     restart: always
     container_name: crowd-security-ch1-vscode
