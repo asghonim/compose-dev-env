@@ -1,4 +1,4 @@
-name: compose-dev-env-reverent_sammet
+name: compose-dev-env-festive_darwin
 services:
   app:
     build:
@@ -14,7 +14,7 @@ services:
       com.docker.devenvironments.compose: "true"
       com.docker.devenvironments.compose.build: "true"
       com.docker.devenvironments.container: "true"
-      com.docker.devenvironments.name: compose-dev-env-reverent_sammet
+      com.docker.devenvironments.name: compose-dev-env-festive_darwin
     networks:
       default: null
     ports:
@@ -27,9 +27,9 @@ services:
     volumes:
     - type: bind
       source: /Users/aghonim/Documents/GitHub/asghonim/compose-dev-env
-      target: /com.docker.devenvironments.code
+      target: /home/vscode/project
     - type: volume
-      source: vsCodeServerVolume-compose-dev-env-reverent_sammet-app
+      source: vsCodeServerVolume-compose-dev-env-festive_darwin-app
       target: /home/vscode
   app2:
     build:
@@ -39,13 +39,17 @@ services:
     labels:
       com.docker.devenvironments.compose: "true"
       com.docker.devenvironments.compose.build: "true"
-      com.docker.devenvironments.name: compose-dev-env-reverent_sammet
+      com.docker.devenvironments.name: compose-dev-env-festive_darwin
     networks:
       default: null
     restart: always
+    volumes:
+    - type: bind
+      source: /Users/aghonim/Documents/GitHub/asghonim/compose-dev-env
+      target: /home/vscode/project
 networks:
   default:
-    name: compose-dev-env-reverent_sammet_default
+    name: compose-dev-env-festive_darwin_default
 volumes:
-  vsCodeServerVolume-compose-dev-env-reverent_sammet-app:
-    name: vsCodeServerVolume-compose-dev-env-reverent_sammet-app
+  vsCodeServerVolume-compose-dev-env-festive_darwin-app:
+    name: vsCodeServerVolume-compose-dev-env-festive_darwin-app
